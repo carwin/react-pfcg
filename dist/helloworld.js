@@ -34,6 +34,7 @@ var CharacterForm = React.createClass({
         id: 'character_name',
         placeholder: 'Character Name'
       }),
+      '// @todo: Make this a select field.',
       React.createElement('input', {
         type: 'text',
         value: this.state.charRace,
@@ -114,7 +115,9 @@ var ContentContainer = React.createClass({
       React.createElement(
         'h2',
         null,
-        this.state.charName
+        this.state.charName,
+        ' the ',
+        this.state.charRace
       ),
       React.createElement(
         'p',

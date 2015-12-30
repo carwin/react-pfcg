@@ -107,7 +107,7 @@ var ContentContainer = React.createClass({
     <main className="main">
       <h1>Character Priors & Particulars</h1>
       <CharacterForm onCharacterSubmit={this.handleCharacterSubmit} />
-      <h2>{this.state.charName}</h2>
+      <h2>{this.state.charName} the {this.state.charRace}</h2>
       <p><b>Strength:</b> {this.state.strength}</p>
       <p><b>Dexterity:</b> {this.state.dexterity}</p>
       <p><b>Constitution:</b> {this.state.constitution}</p>
