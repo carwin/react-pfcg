@@ -10,8 +10,8 @@ var CharacterForm = React.createClass({
   },
   handleSubmit: function(e) {
     e.preventDefault();
-    var name = this.state.charName.trim();
-    var race = this.state.charRace.trim();
+    var name = this.state.charName.trim(),
+        race = this.state.charRace.trim();
     if (!name || !race) {
       return;
     }
@@ -68,18 +68,19 @@ var ContentContainer = React.createClass({
 
       // Set attributes: roll 4d6, remove lowest value, add.
       var rollTheDice = function() {
-        var die1 = Math.floor(Math.random() * (6 - 1 + 1)) + 1;
-        var die2 = Math.floor(Math.random() * (6 - 1 + 1)) + 1;
-        var die3 = Math.floor(Math.random() * (6 - 1 + 1)) + 1;
-        var die4 = Math.floor(Math.random() * (6 - 1 + 1)) + 1;
+        var die1 = Math.floor(Math.random() * (6 - 1 + 1)) + 1,
+            die2 = Math.floor(Math.random() * (6 - 1 + 1)) + 1,
+            die3 = Math.floor(Math.random() * (6 - 1 + 1)) + 1,
+            die4 = Math.floor(Math.random() * (6 - 1 + 1)) + 1,
+            attrRolls = [die1, die2, die3, die4],
+            lowestRoll = Math.min.apply(null, attrRolls),
+            total = 0,
+            attrRollsLength = attrRolls.length;
 
-        var attrRolls = [die1, die2, die3, die4];
-        var lowestRoll = Math.min.apply(null, attrRolls);
         attrRolls.splice(attrRolls.indexOf(lowestRoll), 1);
 
-        var total = 0;
 
-        for (var i = 0; i < attrRolls.length; i++) {
+        for (var i = 0; i < attrRollsLength; i++) {
           total = attrRolls[i] + total;
         }
 
